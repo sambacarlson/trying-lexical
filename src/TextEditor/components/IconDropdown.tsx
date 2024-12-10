@@ -24,7 +24,7 @@ export default function Icondropdown({
         setShowDropdown(false);
       }}
     >
-      <div className="relative flex cursor-pointer w-fit rounded-md border border-black/20 hover:bg-black/10 duration-300">
+      <div className="relative flex cursor-pointer w-fit rounded-md p-1">
         <span
           onClick={() => {
             if (!options.includes(selected) && options.length) {

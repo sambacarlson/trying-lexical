@@ -18,7 +18,7 @@ export default function TextDropdown({
         setShowDropdoown(false);
       }}
     >
-      <div className="relative flex [&>*]:p-1 cursor-pointer w-fit rounded-md border border-black/20 hover:bg-black/10 duration-300">
+      <div className="relative flex [&>*]:p-1 cursor-pointer w-fit rounded-md">
         <span
           onClick={() => {
             onSelect(selected);
