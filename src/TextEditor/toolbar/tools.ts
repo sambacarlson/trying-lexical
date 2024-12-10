@@ -1,4 +1,4 @@
-export type IconToolNameType = "bold" | "italic" | "underline" | "undo" | "redo" | "ordered_list" | "bullet_list" | "align_left" | "align_center" | "align_right" | "align_justify" | "indent_left" | "indent_right" | "link" | "quote" | "table"
+export type IconToolNameType = "" | "bold" | "italic" | "underline" | "undo" | "redo" | "ordered_list" | "bullet_list" | "align_left" | "align_center" | "align_right" | "align_justify" | "indent_left" | "indent_right" | "link" | "quote" | "table"
 export function setIconValue(name: IconToolNameType): string {
   let iconValue = ``
   switch (name) {

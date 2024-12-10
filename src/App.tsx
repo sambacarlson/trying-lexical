@@ -1,4 +1,5 @@
 import "./App.css";
+import { TextEditor } from "./TextEditor";
 
 import Toolbar from "./TextEditor/toolbar/Toolbar";
 
@@ -9,8 +10,7 @@ function App() {
       <div className="">
         <p className="Title">Text editor</p>
         <div className="EditorContainer">
-          <Toolbar />
-          {/* <TextEditor /> */}
+          <TextEditor />
         </div>
       </div>
       <div className="">

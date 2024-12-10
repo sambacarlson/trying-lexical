@@ -7,12 +7,14 @@ import ClickAwayListener from "./ClickAwayListener";
  * @param {ReactNode} defaultOoption - Default ReactNode to be selected. should also define it's own onClick handler
  * @returns void
  */
-export default function Icondropdown({
+export default function ToolDropdown({
   options,
   defaultOption,
+  dropDownDirection,
 }: {
   options: ReactNode[];
   defaultOption?: ReactNode;
+  dropDownDirection?: "horizontal" | "vertical";
 }) {
   const [selected, setSelected] = React.useState<ReactNode>(
     defaultOption || <span className="px-3 py-3"></span>
@@ -58,9 +60,11 @@ export default function Icondropdown({
           </svg>
         </span>
         <div
-          className={`${
-            !showDropdown && "hidden"
-          } absolute top-[100%] border border-black/20 bg-slate-100 rounded-md flex flex-col`}
+          className={`${!showDropdown && "hidden"} ${
+            dropDownDirection === "horizontal"
+              ? "flex-row py-2 px-1"
+              : "flex-col py-1 px-2"
+          } absolute z-[1] top-[100%] left-0 bg-slate-100 rounded-md flex gap-1 min-w-full`}
         >
           {options.map((value, index) => (
             <span
@@ -69,7 +73,7 @@ export default function Icondropdown({
                 setShowDropdown(false);
               }}
               key={index}
-              className="whitespace-nowrap rounded-md flex items-center justify-center mx-1 my-0.5"
+              className="whitespace-nowrap rounded-md flex-col"
             >
               {value}
             </span>

@@ -1,0 +1,21 @@
+.editor-paragraph {
+  text-decoration: none;
+  font-style: normal;
+}
+
+.editor-quote {
+  font-style: italic;
+  opacity: 80%;
+}
+
+.editor-textBold {
+  font-weight: bold;
+}
+
+.editor-textItalic {
+  font-style: italic;
+}
+
+.editor-textUnderline {
+  text-decoration: underline;
+}

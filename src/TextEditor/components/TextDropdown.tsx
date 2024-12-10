@@ -50,7 +50,7 @@ export default function TextDropdown({
         <div
           className={`${
             !showDropdown && "hidden"
-          } absolute top-[100%] border border-black/20 bg-slate-100 rounded-md !px-0 min-w-full flex flex-col`}
+          } absolute z-[1] top-[100%] border border-black/20 bg-slate-100 rounded-md !px-0 min-w-full flex flex-col`}
         >
           {options.map((value, index) => (
             <span

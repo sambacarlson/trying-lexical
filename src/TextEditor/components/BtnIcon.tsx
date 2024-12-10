@@ -1,3 +1,4 @@
+import { MouseEvent } from "react";
 import { IconToolNameType, setIconValue } from "../toolbar/tools";
 
 const BtnIcon = (props: {
@@ -9,17 +10,18 @@ const BtnIcon = (props: {
 }) => {
   let iconValue = props.setIcon || setIconValue(props.name);
 
-  const handlePress = () => {
+  const handlePress = (event: MouseEvent) => {
     !props.disabled && props.onPress();
+    props.disabled && event.stopPropagation();
   };
   return (
     <button
-      onClick={handlePress}
+      onClick={(e) => handlePress(e)}
       className={`${props.active && "bg-blue-200"} ${
         props.disabled ? "text-black/50" : "hover:border-blue-600"
       } ${
-        props.setIcon ? "p-1" : "h-6 w-6"
-      }  border border-blue-300 rounded-md  text-black duration-300 font-mono -tracking-[.05rem]`}
+        props.setIcon ? "p-1 w-full" : "h-6 w-6 justify-center"
+      }  border border-blue-300 rounded-md  text-black duration-300 font-mono -tracking-[.05rem] flex items-center`}
     >
       <div
         dangerouslySetInnerHTML={{ __html: iconValue }}
