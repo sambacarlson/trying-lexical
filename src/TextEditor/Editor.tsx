@@ -8,6 +8,7 @@ import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
+import Toolbar from "./Toolbar";
 
 const theme = {
   // Theme styling goes here
@@ -22,7 +23,7 @@ function onChange(editorState: EditorState) {
     const root = $getRoot();
     const selection = $getSelection();
 
-    console.log(root, selection);
+    // console.log(root, selection);
   });
 }
 
@@ -56,16 +57,27 @@ function Editor() {
   };
 
   return (
-    <LexicalComposer initialConfig={initialConfig}>
-      <PlainTextPlugin
-        contentEditable={<ContentEditable />}
-        placeholder={<div>Enter some text...</div>}
-        ErrorBoundary={LexicalErrorBoundary}
-      />
-      <OnChangePlugin onChange={onChange} />
-      <HistoryPlugin />
-      <MyCustomAutoFocusPlugin />
-    </LexicalComposer>
+    <div className="min-h-[240px] p-2">
+      <LexicalComposer initialConfig={initialConfig}>
+        <Toolbar />
+        <div className="relative">
+          <PlainTextPlugin
+            contentEditable={
+              <ContentEditable className="outline-none min-h-[150px]" />
+            }
+            placeholder={
+              <p className="absolute top-0 left-0 opacity-40">
+                Enter some text...
+              </p>
+            }
+            ErrorBoundary={LexicalErrorBoundary}
+          />
+        </div>
+        <OnChangePlugin onChange={onChange} />
+        <HistoryPlugin />
+        <MyCustomAutoFocusPlugin />
+      </LexicalComposer>
+    </div>
   );
 }
 export default Editor;
