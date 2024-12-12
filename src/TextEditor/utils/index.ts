@@ -1,5 +1,6 @@
-import editorHandler from "./methods";
+import useEditorHandler from "./methods";
+
 
 export {
-  editorHandler
+  useEditorHandler
 }
